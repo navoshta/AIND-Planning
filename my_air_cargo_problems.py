@@ -86,7 +86,26 @@ class AirCargoProblem(Problem):
             :return: list of Action objects
             '''
             unloads = []
-            # TODO create all Unload ground actions from the domain Unload action
+            for a in self.airports:
+                for p in self.planes:
+                    for c in self.cargos:
+                        precond_pos = [
+                            expr("In({}, {})".format(c, p)),
+                            expr("At({}, {})".format(p, a))
+                        ]
+                        precond_neg = []
+                        effect_add = [
+                            expr("At({}, {})".format(c, a))
+                        ]
+                        effect_rem = [
+                            expr("In({}, {})".format(c, p))
+                        ]
+                        unload = Action(
+                            expr("Unload({}, {}, {})".format(c, p, a)),
+                            [precond_pos, precond_neg],
+                            [effect_add, effect_rem]
+                        )
+                        unloads.append(unload)
             return unloads
 
         def fly_actions():
