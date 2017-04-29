@@ -74,7 +74,7 @@
 
 ## Summary
 
-Having evaluated 5 search algorithms (3 uninformed and 2 using A* search with different heuristics) on 3 problems of varying complexity we can see emerging patterns of each of the algorithm performance. 
+Having evaluated **5 search algorithms** (3 uninformed and 2 using A* search with different heuristics) on 3 problems of varying complexity we can see emerging patterns of each of the algorithm performance. 
 
 Depth first search is the only one that didn't find an optimal solution, which is not surprising as it simply traverses the tree in the depth-first order, returning the first solution found. This is also why it was the first to return a solution on all three problems. As **depth first search failed to find an optimal solution**, we will not consider it in our further evaluations.
 
