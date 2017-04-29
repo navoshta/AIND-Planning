@@ -504,6 +504,18 @@ class PlanningGraph():
                     return False
         return True
 
+    def level_cost(self, goal):
+        '''
+        Calculates level cost for a specific goal.
+        '''
+        cost = -1
+        for s_level in self.s_levels:
+            cost += 1
+            for s_node in s_level:
+                if s_node.literal == goal:
+                    return cost
+        return -1
+
     def h_levelsum(self) -> int:
         '''The sum of the level costs of the individual goals (admissible if goals independent)
 
