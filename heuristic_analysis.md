@@ -72,15 +72,15 @@
 * `Unload(C2, P2, SFO)`
 * `Unload(C1, P1, JFK)`
 
-## Results
+## Summary
 
-Having evaluated 5 search algorithms (3 uninformed and 2 using A* search with different heuristics) on 3 problems of different complexity we can see emerging patterns of each of the algorithm performance. 
+Having evaluated 5 search algorithms (3 uninformed and 2 using A* search with different heuristics) on 3 problems of varying complexity we can see emerging patterns of each of the algorithm performance. 
 
-Depth first search is the only one that didn't find an optimal solution, which is not surprising as it simply traverses the tree in the depth-first order, returning the first solution found. This is also why it was the first to return a solution on all three problems. As it failed to find an optimal solution we will not consider it in our further evaluations.
+Depth first search is the only one that didn't find an optimal solution, which is not surprising as it simply traverses the tree in the depth-first order, returning the first solution found. This is also why it was the first to return a solution on all three problems. As **depth first search failed to find an optimal solution**, we will not consider it in our further evaluations.
 
-When it comes uninformed vs informed search algorithms, informed ones seem to perform better or at least just as good on all three problems. Informed search algorithms were represented by A* search using two differen heuristics, and their performance is either on par or better on all three problems than any uninformed algorithms evaluated here — both when it comes to speed and exploration costs (depending on what you're after).
+When it comes to **uninformed vs informed search algorithms**, informed ones seem to perform better or at least just as good on all three problems. Informed search algorithms were represented by A* search using two differen heuristics, and their performance is either on par or better on all three problems than any uninformed algorithms evaluated here — both when it comes to speed and exploration costs (depending on what you're after).
 
-Although informed search algorithms perform better overal, their performance highly depends on the heuristic function we choose, as Stuart Russel and Peter Norvig hightlight in their "Artificial Intelligence: A Modern Approach" textbook. We can see that here as well, as A* search performance varies significantly depending on one of the two heuristics we use: if we use heuristic ignoring preconditions we find an optimal solution about one order of magnitude faster than with the one calculating levels costs. However `levelsum` heuristic requires roughly an order of magnitude less in terms of exploration costs: number of node expansions, goal tests and nodes additions.
+Although informed search algorithms perform better overal, their performance highly depends on the **choice of heuristic function**, as Stuart Russel and Peter Norvig hightlight in their _Artificial Intelligence: A Modern Approach_ textbook. We can see that here as well, as A* search performance varies significantly depending on one of the two heuristics we use: if we use heuristic ignoring preconditions we find an optimal solution about one order of magnitude faster than with the one calculating levels costs. However `levelsum` heuristic requires roughly an order of magnitude less in terms of exploration costs: number of node expansions, goal tests and nodes additions.
 
-To summarise, informed search algorithms will perform better than uninformed ones with a carefully chosen heuristic. The choice of heuristic however highly depends on the problem domain and requried speed/memory tradeoff: if graph exploration costs are relatively high, it would make sense to use a `levelsum` heuristic; and if speed is way more of a factor, then a heuristic which is ignoring preconditions will be a much better fit.
+To summarise, informed search algorithms will perform better than uninformed ones with a carefully chosen heuristic. The choice of heuristic however highly depends on the problem domain and requried **speed/memory tradeoff**: if graph exploration costs are relatively high, it would make sense to use a `levelsum` heuristic; and if speed is way more of a factor, then a heuristic which is ignoring preconditions will be a much better fit.
 
